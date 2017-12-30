@@ -10,14 +10,14 @@ import { AuthGuard } from '../../guards/auth.guard';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    form: FormGroup;
+    form;
     message;
     messageClass;
     processing = false;
     previousUrl;
 
   constructor( private formBuilder: FormBuilder,
-               private authService: AuthService,
+               public authService: AuthService,
                private router: Router,
                private authGuard: AuthGuard)  { this.createForm()  }
 

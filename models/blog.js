@@ -83,9 +83,9 @@ const blogSchema = new Schema({
     body: { type: String, required: true, validate: bodyValidators},
     createdBy: { type: String},
     createdAt: { type: Date, default: Date.now()},
-    likes: {type: Number, default: 0},
+    likes: {type: Number,default: 0},
     likedBy: {type: Array},
-    dislikes: {type: Number, default: 0},
+    dislikes: {type: Number,default: 0},
     dislikedBy: {type: Array},
     comments: [
         {
@@ -94,7 +94,11 @@ const blogSchema = new Schema({
         }
     ]
 
-});
+},{ usePushEach: true });
+/*
+blogSchema.pre('save', function(next){
+   return next();
+});*/
 
 
 
